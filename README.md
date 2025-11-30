@@ -8,6 +8,7 @@ This is my homelab configuration hosted on a Hetzner server.
     - Hetzner Cloud project
     - Hetzner Cloud API token with read and write permissions
 - OpenTofu installed on your local machine
+- Public SSH key found in `~/.ssh/id_rsa.pub`
 
 ## Setup 
 
