@@ -14,7 +14,15 @@ This is my homelab configuration hosted on a Hetzner server.
 
 ## Setup 
 
-### Server Configuration
+### Setup Task Runner (Optional)
+If you want a one command setup, you can use [Task](https://taskfile.dev/) to
+run predefined tasks.
+
+```bash
+    task provision
+```
+
+### Server Configuration (Manual Steps)
 
 Copy the `example.env` file to `.env` and fill in your Hetzner Cloud API token.
 

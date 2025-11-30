@@ -1,0 +1,13 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  provision:
+    desc: "Provision Hetzner server infrastructure"
+    dotenv:
+      - .env
+    dir: infra
+    cmds:
+      - tofu init
+      - tofu apply --auto-approve
