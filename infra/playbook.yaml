@@ -1,0 +1,14 @@
+---
+# ++++++++++++++
+# Create an empty text file on a host
+# ++++++++++++++
+- hosts: all
+  remote_user: root
+  vars:
+    simple_file: ~/simple-file.txt
+  tags:
+    - tag1
+  tasks:
+    - ansible.builtin.file:
+        path: "{{ simple_file }}"
+        state: touch
