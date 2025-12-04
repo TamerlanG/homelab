@@ -8,9 +8,18 @@ terraform {
       version = "~> 1.3.0"
       source  = "ansible/ansible"
     }
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = "2.38.0"
+    }
   }
 }
 
 provider "hcloud" {
   token = var.hcloud_token
+}
+
+provider "kubernetes" {
+  config_path    = "config/kubeconfig"
+  config_context = "homelab"
 }
