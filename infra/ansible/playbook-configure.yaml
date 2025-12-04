@@ -1,29 +1,24 @@
 ---
-- name: Install k3s 
+- name: Configure homelab services
   hosts: all
   remote_user: root
   tasks:
-    - name: Install k3s
-      ansible.builtin.shell: curl -sfL https://get.k3s.io | sh -
-      args:
-        creates: /usr/local/bin/k3s
-
-    - name: Fetch k3s kubeconfig
+    - name: Fetch k5s kubeconfig
       ansible.builtin.fetch:
         src: /etc/rancher/k3s/k3s.yaml
-        dest: kubeconfig
-        flat: yes
+        dest: ../config/kubeconfig
+        flat: true
 
     - name: Update kubeconfig server address
       ansible.builtin.replace:
-        path: kubeconfig
+        path: ../config/kubeconfig
         regexp: '127.0.0.1'
         replace: "{{ ansible_default_ipv4.address }}"
       delegate_to: 127.0.0.1
 
     - name: Update kubeconfig names
       ansible.builtin.replace:
-        path: kubeconfig
+        path: ../config/kubeconfig
         regexp: 'default'
         replace: "homelab"
       delegate_to: 127.0.0.1

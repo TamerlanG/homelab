@@ -9,6 +9,7 @@ This is my homelab configuration hosted on a Hetzner server.
     - Hetzner Cloud API token with read and write permissions
 - OpenTofu installed on your local machine
 - Public SSH key found in `~/.ssh/id_rsa.pub`
+- Ansible installed on your local machine
 - Mise (optional) for managing environment variables
 - Task (optional) for running predefined tasks
 
