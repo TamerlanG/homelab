@@ -37,3 +37,4 @@ terraform.rc
 infra/.env
 infra/kubeconfig
 infra/config/kubeconfig
+.env

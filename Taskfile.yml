@@ -6,7 +6,7 @@ tasks:
   provision:
     desc: "Provision Hetzner server infrastructure"
     dotenv:
-      - .env
+      - ../.env
     dir: infra
     cmds:
       - tofu init

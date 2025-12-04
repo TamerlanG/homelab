@@ -15,20 +15,12 @@ This is my homelab configuration hosted on a Hetzner server.
 
 ## Setup 
 
-### Setup Task Runner (Optional)
-If you want a one command setup, you can use [Task](https://taskfile.dev/) to
-run predefined tasks.
-
-```bash
-    task provision
-```
-
-### Server Configuration (Manual Steps)
+### Pre-requisites
 
 Copy the `example.env` file to `.env` and fill in your Hetzner Cloud API token.
 
 ```bash
-    cp infra/example.env infra/.env
+    cp example.env .env
 ```
 
 Make sure that your environment variables are loaded. If you are using Mise, it
@@ -38,6 +30,16 @@ Mise, you have to run the following command:
 ```bash
     mise trust
 ```
+
+### Setup Task Runner (Optional)
+If you want a one command setup, you can use [Task](https://taskfile.dev/) to
+run predefined tasks.
+
+```bash
+    task provision
+```
+
+### Server Configuration (Manual Steps)
 
 Run the following command to create the server:
 
