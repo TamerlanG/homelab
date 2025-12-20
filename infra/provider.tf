@@ -12,6 +12,10 @@ terraform {
       source  = "hashicorp/kubernetes"
       version = "2.38.0"
     }
+    helm = {
+      source  = "hashicorp/helm"
+      version = "3.1.1"
+    }
   }
 }
 
@@ -22,4 +26,10 @@ provider "hcloud" {
 provider "kubernetes" {
   config_path    = "config/kubeconfig"
   config_context = "homelab"
+}
+
+provider "helm" {
+  kubernetes = {
+    config_path = "config/kubeconfig"
+  }
 }

@@ -20,8 +20,9 @@ resource "ansible_playbook" "playbook_install_k3s" {
 }
 
 resource "ansible_playbook" "playbook_configure" {
-  playbook = "ansible/playbook-configure.yaml"
-  name     = ansible_host.homelab.name
+  playbook   = "ansible/playbook-configure.yaml"
+  name       = ansible_host.homelab.name
+  replayable = false
   depends_on = [
     ansible_playbook.playbook_install_k3s,
   ]
