@@ -12,7 +12,7 @@ resource "kubernetes_manifest" "argocd_app_root" {
   manifest = yamldecode(
     replace(
       file("${path.module}/../k8s/argocd/root/homelab-root-app.yaml"),
-      "git@github.com:TamerlanG/homelab.git",
+      "auto-detect-from-env-var",
       var.argocd_repo_url,
     )
   )
