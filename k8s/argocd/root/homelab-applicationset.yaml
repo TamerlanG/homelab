@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: homelab-apps
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: auto-detect-from-env-var
+        revision: HEAD
+        directories:
+          - path: k8s/apps/*
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: homelab
+      source:
+        repoURL: auto-detect-from-env-var
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: argocd
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
