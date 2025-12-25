@@ -7,7 +7,7 @@ spec:
     service:
       name: dummy
       port:
-        name: https
+        number: 443
   ingressClassName: tailscale
   tls:
     - hosts:
