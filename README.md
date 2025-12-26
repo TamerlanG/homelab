@@ -1,3 +1,6 @@
+Update: I realized that I need a lot more power for my homelab setup, so I need
+to buy some hardware. Therefore, I am pausing this project for now.
+
 # Homelab
 
 This is my homelab configuration hosted on a Hetzner server.
