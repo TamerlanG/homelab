@@ -18,6 +18,15 @@ resource "kubernetes_namespace" "tailscale" {
 }
 
 
+resource "kubernetes_namespace" "monitoring" {
+  metadata {
+    name = "monitoring"
+  }
+  depends_on = [
+    ansible_playbook.playbook_configure,
+  ]
+}
+
 
 resource "helm_release" "argocd" {
   name       = "argocd"
@@ -46,3 +55,11 @@ resource "helm_release" "tailscale_operator" {
     }
   ]
 }
+
+resource "helm_release" "kube_prometheus_stack" {
+  name       = "prometheus"
+  repository = "https://prometheus-community.github.io/helm-charts"
+  chart      = "kube-prometheus-stack"
+  namespace  = kubernetes_namespace.monitoring.metadata[0].name
+}
+
